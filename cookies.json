@@ -1,0 +1,108 @@
+{
+  "url": "https://web.dev/",
+  "timestamp": "2025-07-07T16:29:00.278Z",
+  "browserCookies": [
+    {
+      "domain": "web.dev",
+      "expiry": 1785601738,
+      "goog:priority": "Medium",
+      "goog:sameParty": false,
+      "goog:session": false,
+      "goog:sourcePort": 443,
+      "goog:sourceScheme": "Secure",
+      "httpOnly": false,
+      "name": "cookies_accepted",
+      "path": "/",
+      "sameSite": "none",
+      "secure": false,
+      "size": 20,
+      "value": "true"
+    },
+    {
+      "domain": "web.dev",
+      "expiry": 1767457738,
+      "goog:priority": "Medium",
+      "goog:sameParty": false,
+      "goog:session": false,
+      "goog:sourcePort": 443,
+      "goog:sourceScheme": "Secure",
+      "httpOnly": false,
+      "name": "django_language",
+      "path": "/",
+      "sameSite": "none",
+      "secure": false,
+      "size": 17,
+      "value": "en"
+    },
+    {
+      "domain": ".web.dev",
+      "expiry": 1786465738.560931,
+      "goog:priority": "Medium",
+      "goog:sameParty": false,
+      "goog:session": false,
+      "goog:sourcePort": 443,
+      "goog:sourceScheme": "Secure",
+      "httpOnly": false,
+      "name": "_ga",
+      "path": "/",
+      "sameSite": "none",
+      "secure": false,
+      "size": 30,
+      "value": "GA1.1.1468922811.1751905739"
+    },
+    {
+      "domain": ".web.dev",
+      "expiry": 1786465738.540629,
+      "goog:priority": "Medium",
+      "goog:sameParty": false,
+      "goog:session": false,
+      "goog:sourcePort": 443,
+      "goog:sourceScheme": "Secure",
+      "httpOnly": false,
+      "name": "_ga_64EQFFKSHW",
+      "path": "/",
+      "sameSite": "none",
+      "secure": false,
+      "size": 59,
+      "value": "GS2.1.s1751905738$o1$g0$t1751905738$j60$l0$h0"
+    },
+    {
+      "domain": ".web.dev",
+      "expiry": 1786465738.578652,
+      "goog:priority": "Medium",
+      "goog:sameParty": false,
+      "goog:session": false,
+      "goog:sourcePort": 443,
+      "goog:sourceScheme": "Secure",
+      "httpOnly": false,
+      "name": "_ga_18JR3Q8PJ8",
+      "path": "/",
+      "sameSite": "none",
+      "secure": false,
+      "size": 59,
+      "value": "GS2.1.s1751905738$o1$g0$t1751905738$j60$l0$h0"
+    }
+  ],
+  "windowCookies": [
+    {
+      "name": "cookies_accepted",
+      "value": "true"
+    },
+    {
+      "name": "django_language",
+      "value": "en"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.1468922811.1751905739"
+    },
+    {
+      "name": "_ga_64EQFFKSHW",
+      "value": "GS2.1.s1751905738$o1$g0$t1751905738$j60$l0$h0"
+    },
+    {
+      "name": "_ga_18JR3Q8PJ8",
+      "value": "GS2.1.s1751905738$o1$g0$t1751905738$j60$l0$h0"
+    }
+  ]
+}

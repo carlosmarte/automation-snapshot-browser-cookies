@@ -1,3 +1,5 @@
+// node screenshot-fullpage.mjs https://example.com
+
 import { chromium } from "playwright";
 import fs from "fs/promises";
 import path from "path";

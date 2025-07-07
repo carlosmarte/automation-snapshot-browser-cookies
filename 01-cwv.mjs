@@ -1,3 +1,5 @@
+//node collect-cwv.mjs https://example.com
+
 import { chromium } from "playwright";
 import { readFile } from "fs/promises";
 import { resolve, dirname, join } from "path";

@@ -1,11 +1,11 @@
-// node screenshot-fullpage.mjs https://example.com
+// node extract-cookies-wdio.mjs https://example.com
 
-import { chromium } from "playwright";
+import { remote } from "webdriverio";
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 
-// Utility to resolve __dirname in ESM
+// Resolve __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -13,25 +13,28 @@ const __dirname = path.dirname(__filename);
 const url = process.argv[2];
 if (!url) {
   console.error("❌ Please provide a URL:");
-  console.error("Usage: node extract-cookies.mjs <URL>");
+  console.error("Usage: node extract-cookies-wdio.mjs <URL>");
   process.exit(1);
 }
 
 const outputPath = path.join(__dirname, "cookies.json");
 
 (async () => {
-  const browser = await chromium.launch();
-  const context = await browser.newContext();
-  const page = await context.newPage();
+  const browser = await remote({
+    capabilities: {
+      browserName: "chrome",
+    },
+    logLevel: "error", // set to 'info' or 'debug' for verbosity
+  });
 
   console.log(`🌐 Navigating to ${url}...`);
-  await page.goto(url, { waitUntil: "load" });
+  await browser.url(url);
 
-  // Get cookies via Playwright API
-  const browserCookies = await context.cookies();
+  // Grab browser-managed cookies
+  const browserCookies = await browser.getCookies();
 
-  // Get window.document.cookie (may include JS-set cookies not in HTTP headers)
-  const windowCookiesString = await page.evaluate(() => document.cookie);
+  // Grab window.document.cookie via browser JS context
+  const windowCookiesString = await browser.execute(() => document.cookie);
   const windowCookies = windowCookiesString
     .split("; ")
     .filter(Boolean)
@@ -50,5 +53,5 @@ const outputPath = path.join(__dirname, "cookies.json");
   await fs.writeFile(outputPath, JSON.stringify(result, null, 2));
   console.log(`✅ Cookies saved to ${outputPath}`, result);
 
-  await browser.close();
+  await browser.deleteSession();
 })();
