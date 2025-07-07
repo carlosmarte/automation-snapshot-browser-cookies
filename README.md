@@ -1,0 +1,1 @@
+# automation-snapshot-browser-cookies
