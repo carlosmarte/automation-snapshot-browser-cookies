@@ -1,0 +1,42 @@
+# .sauce/config.yml (Corrected and Validated)
+apiVersion: v1alpha
+kind: playwright
+
+# This section defines the Playwright framework version.
+# The version you had ("1.40.0") was not in the list of supported versions from the error message.
+# I've updated it to "1.52.0", which is a valid option from the error log.
+# Using "package.json" is often the best practice to sync with your project's dependencies.
+playwright:
+  version: "1.52.0"
+
+sauce:
+  region: us-west-1
+  metadata:
+    # ERROR FIX: The 'name' property is not allowed here.
+    # The name of the test job is defined in the 'build' property below.
+    # The name of the individual suite is defined under 'suites'.
+    build: "Playwright Cookie Extractor - ${{ github.run_id || 'local' }}"
+    tags:
+      - playwright
+      - cookie-test
+
+suites:
+  - name: "Chromium on Windows"
+    testMatch:
+      - "main.mjs"
+      
+    # ERROR FIX: For the 'playwright' kind, platform and browser settings
+    # must be placed inside the 'params' block. This is a specific
+    # requirement for this framework runner in saucectl.
+    params:
+      platformName: "Windows 11"
+      browserName: "chromium"
+      url: "https://github.com" # Your custom parameter is correct here.
+
+artifacts:
+  cleanup: true
+  download:
+    when: always
+    match:
+      - "*"
+    directory: ./artifacts/
